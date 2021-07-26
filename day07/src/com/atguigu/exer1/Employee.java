@@ -1,4 +1,4 @@
-package exer1;
+package com.atguigu.exer1;
 
 /**
  * @Author TYL
@@ -12,7 +12,7 @@ package exer1;
  *  并为每一个属性定义 getter, setter 方法；
  *  并重写 toString 方法输出 name, age, birthday
  */
-public class Employee {
+public class Employee implements Comparable{
 
     private String name;
     private int age;
@@ -49,5 +49,16 @@ public class Employee {
 
     public void setBirthday(MyDate birthday) {
         this.birthday = birthday;
+    }
+
+
+    //按照姓名数据排
+    @Override
+    public int compareTo(Object o) {
+        if(o instanceof Employee){
+            Employee e =(Employee)o;
+            return this.name.compareTo(e.getName());
+        }
+        throw new RuntimeException("传入的数据类型不一致");
     }
 }
