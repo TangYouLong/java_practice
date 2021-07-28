@@ -2,8 +2,7 @@ package com.atguigu.java;
 
 import org.junit.Test;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @Author TYL
@@ -63,6 +62,33 @@ public class MapTest {
     //Set entrySet()：返回所有key-value对构成的Set集合
     @Test
     public void test5(){
+        Map map = new HashMap();
+        map.put("AA",123);
+        map.put("BB",1);
+        map.put("CC",2);
 
+        //遍历所有的key集：keySet()
+        Set set = map.keySet();
+        Iterator iterator = set.iterator();
+        while(iterator.hasNext()){
+            System.out.println(iterator.next());
+        }
+
+        System.out.println();
+
+        //遍历所有的value集：values()
+        Collection values = map.values();
+        for(Object obj:values){
+            System.out.println(obj);
+        }
+
+        //遍历所有的key-value
+        Set entrySet = map.entrySet();
+        Iterator iterator1 = entrySet.iterator();
+        while(iterator1.hasNext()){
+            Object obj = iterator1.next();
+            Map.Entry entry = (Map.Entry) obj;
+            System.out.println(entry.getKey() + ":" + entry.getValue());
+        }
     }
 }
