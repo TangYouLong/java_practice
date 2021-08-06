@@ -1,4 +1,4 @@
-package com.atguigu.exer1;
+package com.atguigu.exer;
 
 /**
  * @Author TYL
@@ -12,7 +12,7 @@ package com.atguigu.exer1;
  *  并为每一个属性定义 getter, setter 方法；
  *  并重写 toString 方法输出 name, age, birthday
  */
-public class Employee implements Comparable<Employee>{
+public class Employee implements Comparable{
 
     private String name;
     private int age;
@@ -51,20 +51,14 @@ public class Employee implements Comparable<Employee>{
         this.birthday = birthday;
     }
 
-    //指明泛型时的写法
-    @Override
-    public int compareTo(Employee o) {
-        return this.name.compareTo(o.name);
-    }
-
 
     //按照姓名数据排
-//    @Override
-//    public int compareTo(Object o) {
-//        if(o instanceof Employee){
-//            Employee e =(Employee)o;
-//            return this.name.compareTo(e.getName());
-//        }
-//        throw new RuntimeException("传入的数据类型不一致");
-//    }
+    @Override
+    public int compareTo(Object o) {
+        if(o instanceof Employee){
+            Employee e =(Employee)o;
+            return this.name.compareTo(e.getName());
+        }
+        throw new RuntimeException("传入的数据类型不一致");
+    }
 }
