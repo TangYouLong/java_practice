@@ -1,6 +1,6 @@
 package com.atguigu.java;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.*;
 
@@ -18,6 +18,9 @@ import java.io.*;
  * 3.要想一个java对象是可序列化的，需要满足相应的要求
  * (1.需要实现接口：Serializable
  * 2.需要当前类提供一个全局常量：serialVersionUID)
+ * 3.除了当前Person类需要实现Serializable接口之外，还必须保证其内部所有属性也必须是可序列化的
+ * （默认情况下，基本数据类型可序列化）
+ *
  *
  *
  */
