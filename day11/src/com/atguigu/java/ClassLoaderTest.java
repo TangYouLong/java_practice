@@ -44,7 +44,7 @@ public class ClassLoaderTest {
 //        pros.load(fis);
 
         ClassLoader classLoader = ClassLoaderTest.class.getClassLoader();
-        InputStream is = classLoader.getResourceAsStream("jdbc.properties");
+        InputStream is = classLoader.getResourceAsStream("jdbc1.properties");
         pros.load(is);
 
         String user = pros.getProperty("user");
