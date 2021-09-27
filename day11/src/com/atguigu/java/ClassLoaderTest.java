@@ -2,9 +2,8 @@ package com.atguigu.java;
 
 import org.junit.Test;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 
 /**
@@ -39,8 +38,14 @@ public class ClassLoaderTest {
     @Test
     public void test2() throws IOException {
         Properties pros = new Properties();
-        FileInputStream fis = new FileInputStream("jdbc.properties");
-        pros.load(fis);
+        //此时的文件默认在当前module下
+        //读取配置文件的方式1：
+//        FileInputStream fis = new FileInputStream("jdbc.properties");
+//        pros.load(fis);
+
+        ClassLoader classLoader = ClassLoaderTest.class.getClassLoader();
+        InputStream is = classLoader.getResourceAsStream("jdbc.properties");
+        pros.load(is);
 
         String user = pros.getProperty("user");
         String password = pros.getProperty("password");
