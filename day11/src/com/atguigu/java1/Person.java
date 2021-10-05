@@ -8,6 +8,7 @@ package com.atguigu.java1;
  * @Description TODO:
  *
  */
+@MyAnnotation(value="hi")
 public class Person extends Creature<String> implements Comparable<String>,MyInterface{
 
     private String name;
@@ -15,6 +16,7 @@ public class Person extends Creature<String> implements Comparable<String>,MyInt
     public int id;
     public Person(){}
 
+    @MyAnnotation(value="abc")
     private Person(String name){
         this.name = name;
     }
@@ -24,12 +26,13 @@ public class Person extends Creature<String> implements Comparable<String>,MyInt
         this.age = age;
     }
 
+    @MyAnnotation
      private String show(String nation){
          System.out.println("我的国籍是" + nation);
          return nation;
      }
 
-     public String  dispaly(String interest){
+     public String  dispaly(String interest)throws NullPointerException,ClassCastException{
         return interest;
      }
 
@@ -41,5 +44,9 @@ public class Person extends Creature<String> implements Comparable<String>,MyInt
     @Override
     public int compareTo(String o) {
         return 0;
+    }
+
+    private static void showDesc(){
+        System.out.println("一个可爱的人");
     }
 }
